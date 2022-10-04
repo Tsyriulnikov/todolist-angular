@@ -1,6 +1,12 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-.title-span{
+
+.title-span {
   margin-left: 10px;
+}
+
+.paper {
+  background-color: #303030;
+  min-height: 100vh;
 }
