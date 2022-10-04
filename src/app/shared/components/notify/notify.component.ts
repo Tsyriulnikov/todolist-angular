@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Notify} from "../../../core/models/notify.models";
+import {NotificationService} from "../../../core/services/notification.service";
 
 @Component({
   selector: 'tl-notify',
@@ -8,10 +9,15 @@ import {Notify} from "../../../core/models/notify.models";
   styleUrls: ['./notify.component.css']
 })
 export class NotifyComponent implements OnInit {
-notify$?:Observable<Notify | null>
-  constructor() { }
+  notify$?: Observable<Notify | null>
 
-  ngOnInit(): void {
+  constructor(private notification: NotificationService) {
   }
 
+  ngOnInit(): void {
+    this.notify$ = this.notification.notify$
+  }
+  closeNotification() {
+    this.notification.clear()
+  }
 }
