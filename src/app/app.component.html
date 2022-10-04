@@ -6,7 +6,7 @@
 
     <span class="title-span">Todolist</span>
     <span class="example-spacer"></span>
-    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <button mat-button [matMenuTriggerFor]="menu" (click)="logoutHandler()">Logout</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>Item 1</button>
       <button mat-menu-item>Item 2</button>

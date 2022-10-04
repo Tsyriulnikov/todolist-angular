@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.me()
   }
-
+  logoutHandler() {
+    this.authService.logout()
+  }
 
 }
