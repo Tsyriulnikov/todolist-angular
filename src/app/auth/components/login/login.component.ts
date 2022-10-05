@@ -9,7 +9,7 @@ import { AuthService } from '../../../core/services/auth.service'
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    email: new FormControl<string>('max3142255@gmail.com', {
+    email: new FormControl<string>('', {
       nonNullable: true,
       validators: [
         Validators.required,

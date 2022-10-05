@@ -10,6 +10,7 @@ import {DomainTodo} from "../../models/todos.models";
 })
 export class TodosComponent implements OnInit {
   todos$?: Observable<DomainTodo[]>
+  todoTitle:string = ''
 
   constructor(private todosService: TodosService) {
   }
@@ -19,4 +20,8 @@ export class TodosComponent implements OnInit {
     this.todosService.getTodos()
   }
 
+  addTodoHandler() {
+    this.todosService.addTodo(this.todoTitle)
+    this.todoTitle = ''
+  }
 }
