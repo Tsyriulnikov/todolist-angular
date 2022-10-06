@@ -7,6 +7,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {TodoComponent} from "./components/todos/todo/todo.component";
 import {MatCardModule} from "@angular/material/card";
+import {TaskComponent } from './components/todos/todo/tasks/task/task.component';
+import {TasksComponent} from "./components/todos/todo/tasks/tasks.component";
 
 
 
@@ -14,7 +16,9 @@ import {MatCardModule} from "@angular/material/card";
 @NgModule({
   declarations: [
     TodosComponent,
-    TodoComponent
+    TodoComponent,
+    TasksComponent,
+    TaskComponent
   ],
   exports: [
     TodosComponent

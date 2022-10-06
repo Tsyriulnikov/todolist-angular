@@ -3,11 +3,14 @@
     <input
       *ngIf="isEditMode; else content"
       type="text"
+      matInput
       [(ngModel)]="newTitle"
       (blur)="editTitleHandler()"
+      (keydown.enter)="editTitleHandler()"
     />
+
     <ng-template #content>
-    <b (dblclick)="activateEditModeHandler()">{{ todo.title }}</b>
+      <b (dblclick)="activateEditModeHandler()">{{ todo.title }}</b>
     </ng-template>
     <button mat-fab color="accent" (click)="removeTodoHandler()">
       <mat-icon>delete</mat-icon>
@@ -15,8 +18,8 @@
   </mat-card-title>
 
   <mat-card-content>
-
-</mat-card-content>
+    <tl-tasks [todoId]="todo.id"></tl-tasks>
+  </mat-card-content>
 </mat-card>
 
 
