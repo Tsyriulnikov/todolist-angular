@@ -3,3 +3,8 @@
   gap: 30px;
   flex-wrap: wrap;
 }
+.input-new-todo{
+  color: white;
+  font-size: large;
+  margin-top:30px;
+}

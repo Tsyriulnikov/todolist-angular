@@ -1,17 +1,17 @@
 <div>
   <mat-form-field appearance="legacy">
-    <mat-label>Add todolist</mat-label>
-    <input matInput placeholder="Add new todo" type="text" [(ngModel)]="todoTitle">
+    <input matInput placeholder="Add new todo" type="text" [(ngModel)]="todoTitle" class="input-new-todo">
   </mat-form-field>
   <button mat-fab color="accent" (click)="addTodoHandler()">
     <mat-icon>add</mat-icon>
   </button>
 </div>
 <div class="todos-box">
-<tl-todo
-  *ngFor="let todo of todos$ | async"
-  [todo]="todo"
-  (removeTodoEvent)="removeTodo($event)"
->
-</tl-todo>
+  <tl-todo
+    *ngFor="let todo of todos$ | async"
+    [todo]="todo"
+    (removeTodoEvent)="removeTodo($event)"
+    (editTodoEvent)="editTodo($event)"
+  >
+  </tl-todo>
 </div>
