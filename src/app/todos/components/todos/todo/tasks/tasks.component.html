@@ -5,10 +5,12 @@
 <!--  [(ngModel)]="taskTitle"-->
 <!--  (keyup.enter)="addTaskHandler()"-->
 <!--/>-->
-<tl-task
-  *ngFor="let task of tasks$ | async"
-  [task]="task">
-<!--  (removeTaskEvent)="removeTask($event)"-->
-<!--  (changeTaskEvent)="changeTask($event)"-->
+<mat-card>
+  <tl-task
+    *ngFor="let task of tasks$ | async"
+    [task]="task">
+    <!--  (removeTaskEvent)="removeTask($event)"-->
+    <!--  (changeTaskEvent)="changeTask($event)"-->
 
-</tl-task>
+  </tl-task>
+</mat-card>
