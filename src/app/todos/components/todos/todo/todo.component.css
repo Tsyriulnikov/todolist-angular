@@ -2,6 +2,7 @@
   width: 400px;
 }
 .mat-card-title{
+  background-color: dimgray;
   display: flex;
   justify-content: space-between;
 }

@@ -8,6 +8,10 @@ import {MatCardModule} from "@angular/material/card";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import {InputTextModule} from "primeng/inputtext";
+import {CheckboxModule} from "primeng/checkbox";
+import {ButtonModule} from "primeng/button";
+import {RippleModule} from "primeng/ripple";
 
 
 
@@ -23,6 +27,10 @@ import {MatInputModule} from "@angular/material/input";
     MatIconModule,
     FormsModule,
     MatInputModule,
+    InputTextModule,
+    CheckboxModule,
+    ButtonModule,
+    RippleModule,
   ]
 })
 export class AuthModule { }

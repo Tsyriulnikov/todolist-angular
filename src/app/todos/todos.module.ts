@@ -9,6 +9,8 @@ import {TodoComponent} from "./components/todos/todo/todo.component";
 import {MatCardModule} from "@angular/material/card";
 import {TaskComponent } from './components/todos/todo/tasks/task/task.component';
 import {TasksComponent} from "./components/todos/todo/tasks/tasks.component";
+import {ButtonModule} from "primeng/button";
+import {RippleModule} from "primeng/ripple";
 
 
 
@@ -24,7 +26,7 @@ import {TasksComponent} from "./components/todos/todo/tasks/tasks.component";
     TodosComponent
   ],
   imports: [
-    CommonModule, TodosRoutingModule, MatInputModule, MatIconModule, FormsModule, MatCardModule
+    CommonModule, TodosRoutingModule, MatInputModule, MatIconModule, FormsModule, MatCardModule, ButtonModule, RippleModule
   ]
 })
 export class TodosModule { }
