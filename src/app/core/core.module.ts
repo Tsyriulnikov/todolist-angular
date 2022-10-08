@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {CredentialsInterceptor} from "./interceptors/credentials.interceptor";
+import {AuthService} from "./services/auth.service";
+import {NotificationService} from "./services/notification.service";
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import {CredentialsInterceptor} from "./interceptors/credentials.interceptor";
       useClass: CredentialsInterceptor,
       multi: true,
     },
+    AuthService,
+    NotificationService
   ]
 
 })

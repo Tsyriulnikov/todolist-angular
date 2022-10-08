@@ -8,8 +8,8 @@
 <mat-card>
   <tl-task
     *ngFor="let task of tasks$ | async"
-    [task]="task">
-    <!--  (removeTaskEvent)="removeTask($event)"-->
+    [task]="task"
+    (removeTaskEvent)="removeTask($event)">
     <!--  (changeTaskEvent)="changeTask($event)"-->
 
   </tl-task>
