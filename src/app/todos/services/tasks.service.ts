@@ -1,19 +1,18 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, map} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {DomainTask, GetTasksResponse,Task} from "../models/task.models";
-import {CommonResponse} from "../../core/models/core.models";
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { environment } from '../../../environments/environment'
+
+import { BehaviorSubject, map } from 'rxjs'
+import { DomainTask, GetTasksResponse, Task, UpdateTaskModel } from '../models/task.models'
+import { CommonResponse } from '../../../../../todolist-angular/src/app/core/models/core.models'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TasksService {
-
   tasks$ = new BehaviorSubject<DomainTask>({})
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getTasks(todoId: string) {
     return this.http
@@ -25,6 +24,7 @@ export class TasksService {
         this.tasks$.next(stateTasks)
       })
   }
+
   addTask(data: { todoId: string; title: string }) {
     this.http
       .post<CommonResponse<{ item: Task }>>(
@@ -42,6 +42,7 @@ export class TasksService {
       )
       .subscribe((tasks: DomainTask) => this.tasks$.next(tasks))
   }
+
   removeTask(data: { taskId: string; todoId: string }) {
     this.http
       .delete<CommonResponse>(
@@ -53,6 +54,30 @@ export class TasksService {
           const tasksForTodo = stateTasks[data.todoId]
           const filteredTasks = tasksForTodo.filter(t => t.id !== data.taskId)
           stateTasks[data.todoId] = filteredTasks
+          return stateTasks
+        })
+      )
+      .subscribe((tasks: DomainTask) => this.tasks$.next(tasks))
+  }
+
+  updateTask(data: { todoId: string; taskId: string; model: UpdateTaskModel }) {
+    this.http
+      .put<CommonResponse>(
+        `${environment.baseUrl}/todo-lists/${data.todoId}/tasks/${data.taskId}`,
+        data.model
+      )
+      .pipe(
+        map(() => {
+          const stateTasks = this.tasks$.getValue()
+          const tasksForTodo = stateTasks[data.todoId]
+          const newTasks = tasksForTodo.map(t => {
+            if (t.id === data.taskId) {
+              return { ...t, ...data.model }
+            } else {
+              return t
+            }
+          })
+          stateTasks[data.todoId] = newTasks
           return stateTasks
         })
       )

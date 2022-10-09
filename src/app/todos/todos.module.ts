@@ -23,7 +23,7 @@ import {RippleModule} from "primeng/ripple";
     TaskComponent
   ],
   exports: [
-    TodosComponent
+    // TodosComponent
   ],
   imports: [
     CommonModule, TodosRoutingModule, MatInputModule, MatIconModule, FormsModule, MatCardModule, ButtonModule, RippleModule

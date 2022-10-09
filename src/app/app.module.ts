@@ -10,6 +10,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
 import {MatMenuModule} from "@angular/material/menu";
 import { NotifyComponent } from './shared/components/notify/notify.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NotifyComponent } from './shared/components/notify/notify.component';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    MatMenuModule
+    MatMenuModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

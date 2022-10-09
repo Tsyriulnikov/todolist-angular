@@ -12,9 +12,7 @@
     <ng-template #content>
       <b (dblclick)="activateEditModeHandler()">{{ todo.title }}</b>
     </ng-template>
-    <!--    <button mat-fab color="accent" (click)="removeTodoHandler()">-->
-    <!--      <mat-icon>delete</mat-icon>-->
-    <!--    </button>-->
+
     <button pButton pRipple icon="pi pi-trash" (click)="removeTodoHandler()"
             class="p-button-warning"></button>
   </mat-card-title>
