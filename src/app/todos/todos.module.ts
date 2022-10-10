@@ -11,6 +11,8 @@ import {TaskComponent } from './components/todos/todo/tasks/task/task.component'
 import {TasksComponent} from "./components/todos/todo/tasks/tasks.component";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
+import { TodoFiltersComponent } from './components/todos/todo/todo-filters/todo-filters.component';
+import { TodoFooterComponent } from './components/todos/todo/todo-footer/todo-footer.component';
 
 
 
@@ -20,7 +22,9 @@ import {RippleModule} from "primeng/ripple";
     TodosComponent,
     TodoComponent,
     TasksComponent,
-    TaskComponent
+    TaskComponent,
+    TodoFiltersComponent,
+    TodoFooterComponent
   ],
   exports: [
     // TodosComponent
