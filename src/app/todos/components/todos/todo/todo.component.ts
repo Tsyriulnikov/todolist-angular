@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {DomainTodo} from "../../../models/todos.models";
+import {DomainTodo, FilterType} from "../../../models/todos.models";
+import {TodosService} from "../../../services/todos.service";
 
 @Component({
   selector: 'tl-todo',
@@ -12,7 +13,7 @@ export class TodoComponent implements OnInit {
   @Output() editTodoEvent = new EventEmitter<{ todoId: string; title: string }>()
   isEditMode = false
   newTitle = ''
-  constructor() {
+  constructor(private todosService:TodosService) {
   }
 
   ngOnInit(): void {
@@ -28,5 +29,9 @@ export class TodoComponent implements OnInit {
   activateEditModeHandler() {
     this.newTitle = this.todo.title
     this.isEditMode = true
+  }
+
+  changeFilter(filter: FilterType) {
+    this.todosService.changeFilter({ filter, todoId: this.todo.id })
   }
 }

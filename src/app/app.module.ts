@@ -11,11 +11,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatMenuModule} from "@angular/material/menu";
 import { NotifyComponent } from './shared/components/notify/notify.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { MenuComponent } from './shared/components/menu/menu.component';
+import {MenubarModule} from "primeng/menubar";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NotifyComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatIconModule,
     HttpClientModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

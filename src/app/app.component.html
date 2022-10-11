@@ -1,19 +1,18 @@
 <div class="paper">
-  <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
+  <!--  <mat-toolbar color="primary">-->
+  <!--    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">-->
+  <!--      <mat-icon>menu</mat-icon>-->
+  <!--    </button>-->
 
-    <span class="title-span">Todolist</span>
-    <span class="example-spacer"></span>
-    <button mat-button [matMenuTriggerFor]="menu" (click)="logoutHandler()">Logout</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Item 1</button>
-      <button mat-menu-item>Item 2</button>
-    </mat-menu>
+  <!--    <span class="title-span">Todolist</span>-->
+  <!--&lt;!&ndash;    <span class="example-spacer"></span>&ndash;&gt;-->
+  <!--    <button mat-button [matMenuTriggerFor]="menu" (click)="logoutHandler()">Logout</button>-->
+  <!--    <mat-menu #menu="matMenu">-->
 
-  </mat-toolbar>
+  <!--    </mat-menu>-->
+
+  <!--  </mat-toolbar>-->
+  <tl-menu></tl-menu>
   <tl-notify></tl-notify>
-
-  <router-outlet></router-outlet>
+   <router-outlet></router-outlet>
 </div>

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import {DomainTodo, Todo} from "../models/todos.models";
+import {DomainTodo, FilterType, Todo} from "../models/todos.models";
 import {BehaviorSubject, map} from "rxjs";
 import {CommonResponse} from "../../core/models/core.models";
 
@@ -19,7 +19,7 @@ export class TodosService {
       .get<Todo[]>(`${environment.baseUrl}/todo-lists`)
       .pipe(
         map(todos => {
-          const newTodos: DomainTodo[] = todos.map(tl => ({ ...tl, filter: 'all' }))
+          const newTodos: DomainTodo[] = todos.map(tl => ({...tl, filter: 'all'}))
           return newTodos
         })
       )
@@ -27,13 +27,14 @@ export class TodosService {
         this.todos$.next(todos)
       })
   }
+
   addTodo(title: string) {
     this.http
-      .post<CommonResponse<{ item: Todo }>>(`${environment.baseUrl}/todo-lists`, { title })
+      .post<CommonResponse<{ item: Todo }>>(`${environment.baseUrl}/todo-lists`, {title})
       .pipe(
         map(res => {
           const stateTodos = this.todos$.getValue()
-          const newTodo: DomainTodo = { ...res.data.item, filter: 'all' }
+          const newTodo: DomainTodo = {...res.data.item, filter: 'all'}
           return [newTodo, ...stateTodos]
         })
       )
@@ -41,6 +42,7 @@ export class TodosService {
         this.todos$.next(todos)
       })
   }
+
   removeTodo(todoId: string) {
     this.http
       .delete<CommonResponse>(`${environment.baseUrl}/todo-lists/${todoId}`)
@@ -54,6 +56,7 @@ export class TodosService {
         this.todos$.next(todos)
       })
   }
+
   updateTodoTitle(data: { todoId: string; title: string }) {
     this.http
       .put<CommonResponse>(`${environment.baseUrl}/todo-lists/${data.todoId}`, {
@@ -64,7 +67,7 @@ export class TodosService {
           const stateTodos = this.todos$.getValue()
           return stateTodos.map(tl => {
             if (tl.id === data.todoId) {
-              return { ...tl, title: data.title }
+              return {...tl, title: data.title}
             } else {
               return tl
             }
@@ -74,5 +77,17 @@ export class TodosService {
       .subscribe(todos => {
         this.todos$.next(todos)
       })
+  }
+
+  changeFilter(data: { filter: FilterType; todoId: string }) {
+    const stateTodos = this.todos$.getValue()
+    const newTodos = stateTodos.map(tl => {
+      if (tl.id === data.todoId) {
+        return {...tl, filter: data.filter}
+      } else {
+        return tl
+      }
+    })
+    this.todos$.next(newTodos)
   }
 }

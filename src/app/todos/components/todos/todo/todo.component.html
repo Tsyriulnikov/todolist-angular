@@ -19,6 +19,11 @@
 
   <mat-card-content>
     <tl-tasks [todoId]="todo.id"></tl-tasks>
+    <tl-todo-filters
+      (changeFilterEvent)="changeFilter($event)"
+      [filter]="todo.filter"
+    ></tl-todo-filters>
+    <tl-todo-footer [addedDate]="todo.addedDate"></tl-todo-footer>
   </mat-card-content>
 </mat-card>
 
