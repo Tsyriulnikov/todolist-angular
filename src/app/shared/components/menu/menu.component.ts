@@ -17,7 +17,6 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {label: 'Logout', icon:'pi pi-sign-out',command:()=>this.authService.logout()},
-
     ];
   }
 }

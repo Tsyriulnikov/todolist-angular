@@ -13,13 +13,13 @@ import { NotifyComponent } from './shared/components/notify/notify.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MenuComponent } from './shared/components/menu/menu.component';
 import {MenubarModule} from "primeng/menubar";
+import {StyleClassModule} from "primeng/styleclass";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NotifyComponent,
-    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +31,11 @@ import {MenubarModule} from "primeng/menubar";
     HttpClientModule,
     MatMenuModule,
     BrowserAnimationsModule,
-    MenubarModule
+    MenubarModule,
+    StyleClassModule
   ],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

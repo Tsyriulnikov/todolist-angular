@@ -13,6 +13,9 @@ import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
 import { TodoFiltersComponent } from './components/todos/todo/todo-filters/todo-filters.component';
 import { TodoFooterComponent } from './components/todos/todo/todo-footer/todo-footer.component';
+import {AppModule} from "../app.module";
+import {MenuComponent} from "../shared/components/menu/menu.component";
+import {MenubarModule} from "primeng/menubar";
 
 
 
@@ -24,13 +27,23 @@ import { TodoFooterComponent } from './components/todos/todo/todo-footer/todo-fo
     TasksComponent,
     TaskComponent,
     TodoFiltersComponent,
-    TodoFooterComponent
+    TodoFooterComponent,
+    MenuComponent,
+
   ],
   exports: [
     // TodosComponent
   ],
   imports: [
-    CommonModule, TodosRoutingModule, MatInputModule, MatIconModule, FormsModule, MatCardModule, ButtonModule, RippleModule
+    CommonModule,
+    TodosRoutingModule,
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
+    MatCardModule,
+    ButtonModule,
+    RippleModule,
+    MenubarModule,
   ]
 })
 export class TodosModule { }
